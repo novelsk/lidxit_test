@@ -1,0 +1,94 @@
+[tool.ruff]
+exclude = ["scripts"]
+line-length = 79
+lint.ignore = [
+    "Q000",   # Single quotes found but double quotes preferred
+    "ANN201", # missing return type annotation for public function
+    "ANN101", # missing type annotation for __ in method
+    "ANN001", # missing type annotation for function argument
+    "D100",   # missing docstring in public module
+    "D101",   # missing docstring in public class FOR DEV
+    "D102",   # missing docstring in public method
+    "D104",   # missing docstring in public package
+    "D106",   # Missing docstring in public nested class
+    "D203",   # 1 blank line required before class docstring
+    "D213",   # multi-line docstring summary should start at the second line
+    "ERA001", # Found commented-out code
+    "PT009",  # Use a regular `assert` instead of unittest-style `assertEqual`
+    "ANN002", # Missing type annotation for `*args`
+    "ANN003", # Missing type annotation for `**kwargs`
+    "COM812", # missing trailing comma
+    "ISC001", # Found implicit string concatenation
+    "TD003", # Missing issue link on the line following this TODO
+    "TD002",  # Missing author in TODO
+    "FA102", # Use `from __future__ import annotations` instead of `from __future__ import generator_stop`
+    "FA100", # Use `from __future__ import annotations` instead of `from __future__ import division`
+    "SIM105", # Use `contextlib.suppress(AttributeError)` instead of `try`-`except`-`pass
+    "DJ001", # Avoid using `null=True` on string-based fields such as `CharField`
+    "D103", # Missing docstring in public function
+    "DTZ007", # Naive datetime constructed using `datetime.datetime.strptime()` without %z
+    "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
+    "PTH123" #  `open()` should be replaced by `Path.open()`
+]
+lint.select = [
+    "A",      # flake8-builtins, https://beta.ruff.rs/docs/rules/#flake8-builtins-a
+    "ANN",    # flake8-annotations, https://beta.ruff.rs/docs/rules/#flake8-annotations-ann
+    "ARG",    # flake8-unused-arguments, https://beta.ruff.rs/docs/rules/#flake8-unused-arguments-arg
+    "B",      # flake8-bugbear, https://beta.ruff.rs/docs/rules/#flake8-bugbear-b
+    "BLE",    # flake8-blind-except, https://beta.ruff.rs/docs/rules/#flake8-blind-except-ble
+    "C90",    # mccabe, https://beta.ruff.rs/docs/rules/#mccabe-c90
+    "COM",    # flake8-commas, https://beta.ruff.rs/docs/rules/#flake8-commas-com
+    "D",      # pydocstyle, https://beta.ruff.rs/docs/rules/#pydocstyle-d
+    "DJ",     # flake8-django, https://beta.ruff.rs/docs/rules/#flake8-django-dj
+    "DTZ",    # flake8-datetimez, https://beta.ruff.rs/docs/rules/#flake8-datetimez-dtz
+    "E",      # pycodestyle-error, https://beta.ruff.rs/docs/rules/#pycodestyle-e-w
+    "EM",     # flake8-errmsg, https://beta.ruff.rs/docs/rules/#flake8-errmsg-em
+    "ERA",    # eradicate, https://beta.ruff.rs/docs/rules/#eradicate-era
+    "EXE",    # flake8-executable, https://beta.ruff.rs/docs/rules/#flake8-executable-exe
+    "F",      # pyflakes, https://beta.ruff.rs/docs/rules/#pyflakes-f
+    "FA",     # flake8-future-annotations, https://beta.ruff.rs/docs/rules/#flake8-future-annotations-fa
+    "FBT",    # flake8-boolean-trap, https://beta.ruff.rs/docs/rules/#flake8-boolean-trap-fbt
+    "FLY",    # flynt, https://beta.ruff.rs/docs/rules/#flynt-fly
+    "G",      # flake8-logging-format, https://beta.ruff.rs/docs/rules/#flake8-logging-format-g
+    "I",      # isort, https://beta.ruff.rs/docs/rules/#isort-i
+    "ICN",    # flake8-import-conventions, https://beta.ruff.rs/docs/rules/#flake8-import-conventions-icn
+    "INP",    # flake8-no-pep420, https://beta.ruff.rs/docs/rules/#flake8-no-pep420-inp
+    "INT",    # flake8-gettext, https://beta.ruff.rs/docs/rules/#flake8-gettext-int
+    "ISC",    # flake8-implicit-str-concat, https://beta.ruff.rs/docs/rules/#flake8-implicit-str-concat-isc
+    "N",      # pep8-naming, https://beta.ruff.rs/docs/rules/#pep8-naming-n
+    "PGH",    # pygrep-hooks, https://beta.ruff.rs/docs/rules/#pygrep-hooks-pgh
+    "PIE",    # flake8-pie, https://beta.ruff.rs/docs/rules/#flake8-pie-pie
+    "PL",     # pylint, https://beta.ruff.rs/docs/rules/#pylint-pl
+    "PLE",    # pylint-error, https://beta.ruff.rs/docs/rules/#error-ple
+    "PLR",    # pylint-refactor, https://beta.ruff.rs/docs/rules/#refactor-plr
+    "PLW",    # pylint-warning, https://beta.ruff.rs/docs/rules/#warning-plw
+    "PTH",    # flake8-use-pathlib, https://beta.ruff.rs/docs/rules/#flake8-use-pathlib-pth
+    "PYI",    # flake8-pyi, https://beta.ruff.rs/docs/rules/#flake8-pyi-pyi
+    "Q",      # flake8-quotes, https://beta.ruff.rs/docs/rules/#flake8-quotes-q
+    "RET",    # flake8-return, https://beta.ruff.rs/docs/rules/#flake8-return-ret
+    "RSE",    # flake8-raise, https://beta.ruff.rs/docs/rules/#flake8-raise-rse
+    "S",      # flake8-bandit, https://beta.ruff.rs/docs/rules/#flake8-bandit-s
+    "SIM",    # flake8-simplify, https://beta.ruff.rs/docs/rules/#flake8-simplify-sim
+    "SLF",    # flake8-self, https://beta.ruff.rs/docs/rules/#flake8-self-slf
+    "T10",    # flake8-debugger, https://beta.ruff.rs/docs/rules/#flake8-debugger-t10
+    "T20",    # flake8-print, https://beta.ruff.rs/docs/rules/#flake8-print-t20
+    "TCH",    # flake8-type-checking, https://beta.ruff.rs/docs/rules/#flake8-type-checking-tch
+    "TD",     # flake8-todos, https://beta.ruff.rs/docs/rules/#flake8-todos-td
+    "TID",    # flake8-tidy-imports, https://beta.ruff.rs/docs/rules/#flake8-tidy-imports-tid
+    "TRY",    # tryceratops, https://beta.ruff.rs/docs/rules/#tryceratops-try
+    "UP",     # pyupgrade, https://beta.ruff.rs/docs/rules/#pyupgrade-up
+    "W",      # pycodestyle-warning, https://beta.ruff.rs/docs/rules/#pycodestyle-e-w
+    "YTT",    # flake8-2020, https://beta.ruff.rs/docs/rules/#flake8-2020-ytt
+]
+fix = true
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true

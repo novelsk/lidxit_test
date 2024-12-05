@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+#  web: &lh_backend_api
+#    container_name: lh_backend
+#    build: ./src
+#    restart: always
+#    volumes:
+#      - ./src:/usr/src/
+#    ports:
+#      - "8000:80"
+#    env_file:
+#      - ./src/.env
+#    depends_on:
+#      db:
+#        condition: service_healthy
+#    logging:
+#      options:
+#        max-size: 50m
+
+  db:
+    container_name: lh_mongo_db
+    image: mongo:latest
+    restart: always
+    volumes:
+      - ./db:/data/db
+    ports:
+      - '27017:27017'
+    env_file:
+      - ./src/.env
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    logging:
+      options:
+        max-size: 50m
+

@@ -1,0 +1,5 @@
+/.venv/
+/db/
+
+/src/.env
+.idea
