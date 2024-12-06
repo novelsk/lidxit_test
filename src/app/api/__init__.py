@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
+from starlette.datastructures import QueryParams
 
 from app.services import determine_field_type, find_matching_template
 
@@ -12,7 +13,8 @@ def setup_views(api: FastAPI):
     @api.post("/get_form")
     async def get_form(request: Request) -> GetFormResponse | dict:
         fields = {}
-        for key, value in request.query_params.items():
+        data = await request.body()
+        for key, value in QueryParams(data).items():
             fields[key] = determine_field_type(value)
         matching_template = find_matching_template(fields)
         if matching_template:
